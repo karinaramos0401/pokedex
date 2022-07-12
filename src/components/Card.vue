@@ -1,15 +1,18 @@
 <template>
+	<input class="search" v-model="search" placeholder="Search" />
 	<ul class="container">
-		<li v-for="pokemon in pokemons" :key="pokemon.name" class="items">
+		<li class="items" v-for="pokemon in filter_pokemons" :key="pokemon.name">
 			<img
-				class="img"
+				class="pokemons"
 				:src="`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${get_pokemon_id(
 					pokemon
 				)}.png`"
 				alt="pokemon.name"
 			/>
-			<span class="description">{{ pokemon.name }}</span>
-			<span class="description">#{{ get_pokemon_id(pokemon) }}</span>
+			<div class="description">
+				<span>{{ pokemon.name }}</span>
+				<span>#{{ get_pokemon_id(pokemon) }}</span>
+			</div>
 		</li>
 	</ul>
 </template>
@@ -21,11 +24,13 @@ export default {
 	components: {},
 	data: () => ({
 		pokemons: [],
+		search: "",
 	}),
 	mounted() {
 		axios
 			.get("https://pokeapi.co/api/v2/pokemon?limit=151")
 			.then((response) => {
+				console.log(response);
 				this.pokemons = response.data.results;
 			});
 	},
@@ -34,13 +39,33 @@ export default {
 			return Number(pokemon.url.split("/")[6]);
 		},
 	},
+	computed: {
+		filter_pokemons() {
+			return this.pokemons.filter((item) => {
+				return item.name.includes(this.search);
+				console.log("banana", this.search);
+			});
+		},
+	},
 };
 </script>
 <style lang="scss">
 @import "@/assets/_shared.scss";
 
-img {
-	width: 150px;
+.pokemons {
+	background-color: #ffff;
+	padding-left: 0px !important;
+}
+
+.search {
+	margin: 50px 0 20px 39px;
+	border-radius: 10px;
+	height: 40px;
+	width: 34.375rem;
+	border: 2px;
+	outline: 0;
+	border: 1px solid #696969;
+	padding-left: 10px;
 	background-color: #ffff;
 }
 
@@ -51,16 +76,25 @@ img {
 }
 
 .items {
-	padding-left: 50px;
 	margin-top: 10px;
-	overflow: hidden;
 	background-color: #ffff;
-	margin-left: 50px;
+	height: 138px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	padding: 15px;
 }
 
 .description {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	background-color: #ffff;
+}
+
+.description > span {
 	font-size: 18px;
-	text-align: justify;
 	background-color: #ffff;
 }
 </style>
