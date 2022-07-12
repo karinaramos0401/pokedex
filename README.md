@@ -1,16 +1,17 @@
-# vue-pokedex
+# Pokedex 
+![pokedex](https://user-images.githubusercontent.com/84257110/178411144-7eb99fd7-755c-4247-bc86-44afa7f9ac2d.gif)
 
-This template should help get you started developing with Vue 3 in Vite.
 
-## Recommended IDE Setup
+## Sobre o Projeto
+Estruturado com o framework Vuejs, a API hhtps://pokeapi.co/ e o pré-processador SASS, sem framework de estilo ou vuetify, a pokedex tem o intuito de filtrar por nomes os 151 pokemóns da primeira geração.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+## Ferramentas 
+  - Vuejs
+  - SASS
+  - Axios
+  - API PokeApi
 
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
+## Setup
 
 ```sh
 npm install
@@ -33,3 +34,4 @@ npm run build
 ```sh
 npm run lint
 ```
+
