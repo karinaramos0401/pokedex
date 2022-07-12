@@ -43,7 +43,6 @@ export default {
 		filter_pokemons() {
 			return this.pokemons.filter((item) => {
 				return item.name.includes(this.search);
-				console.log("banana", this.search);
 			});
 		},
 	},
@@ -53,48 +52,48 @@ export default {
 @import "@/assets/_shared.scss";
 
 .pokemons {
-	background-color: #ffff;
+	background-color: $white;
 	padding-left: 0px !important;
 }
 
 .search {
-	margin: 50px 0 20px 39px;
-	border-radius: 10px;
-	height: 40px;
+	margin: 3.125rem 0 1.25rem 2.4375rem;
+	border-radius: 0.625rem;
+	height: 2.5rem;
 	width: 34.375rem;
-	border: 2px;
+	border: 0.125rem;
 	outline: 0;
-	border: 1px solid #696969;
-	padding-left: 10px;
-	background-color: #ffff;
+	border: 1px solid $border;
+	padding-left: 0.625rem;
+	background-color: $white;
 }
 
 .container {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-	gap: 5px 14px;
+	gap: 0.3125rem 0.875rem;
 }
 
 .items {
-	margin-top: 10px;
-	background-color: #ffff;
-	height: 138px;
+	margin-top: 0.625rem;
+	background-color: $white;
+	height: 8.625rem;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-between;
-	padding: 15px;
+	padding: 0.9375rem;
 }
 
 .description {
 	display: flex;
 	justify-content: space-between;
 	width: 100%;
-	background-color: #ffff;
+	background-color: $white;
 }
 
 .description > span {
-	font-size: 18px;
-	background-color: #ffff;
+	font-size: 1.125rem;
+	background-color: $white;
 }
 </style>

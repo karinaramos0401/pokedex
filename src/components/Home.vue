@@ -20,13 +20,13 @@ export default {
 }
 
 body {
-	padding: 50px;
+	padding: 3.125rem;
 }
 
 .title {
 	font-family: "Poppins";
-	font-size: 42px;
+	font-size: 2.625rem;
 	font-weight: 200;
-	padding-left: 39px;
+	padding-left: 2.4375rem;
 }
 </style>
