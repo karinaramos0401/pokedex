@@ -1,27 +1,21 @@
 <template>
 	<input class="search" v-model="search" placeholder="Search" />
 	<ul class="container">
-		<li class="items" v-for="pokemon in filter_pokemons" :key="pokemon.name">
-			<img
-				class="pokemons"
-				:src="`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${get_pokemon_id(
-					pokemon
-				)}.png`"
-				alt="pokemon.name"
-			/>
-			<div class="description">
-				<span>{{ pokemon.name }}</span>
-				<span>#{{ get_pokemon_id(pokemon) }}</span>
-			</div>
-		</li>
+		<CardItem
+			:pokemon="pokemon"
+			v-for="pokemon in filter_pokemons"
+			:key="pokemon.name"
+		>
+		</CardItem>
 	</ul>
 </template>
 
 <script>
 import axios from "axios";
+import CardItem from "../components/CardItem.vue";
 export default {
 	name: "App",
-	components: {},
+	components: { CardItem },
 	data: () => ({
 		pokemons: [],
 		search: "",
